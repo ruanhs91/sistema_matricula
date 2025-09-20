@@ -1,0 +1,29 @@
+{% extends 'alunos/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Detalhes do Aluno</h1>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">{{ aluno.nome }} </h5>
+    </div>
+    <div class="card-body">
+        <p><strong>Matrícula:</strong> {{ aluno.numero_matricula }}</p>
+        <p><strong>Sexo:</strong> {{ aluno.get_sexo_display }}</p>
+        <p><strong>Data de Nascimento:</strong> {{ aluno.data_nascimento|date:"d/m/Y" }}</p>
+        <p><strong>Email:</strong> {{ aluno.email }}</p>
+        <p><strong>Telefone:</strong> {{ aluno.telefone }}</p>
+        <hr>
+        <p><strong>Curso:</strong> {{ aluno.curso }}</p>
+        <p><strong>Série:</strong> {{ aluno.serie}}</p>
+        <p><strong>Turno:</strong> {{ aluno.turno }}</p>
+        <hr>
+        <p><strong>Cidade:</strong> {{ aluno.cidade }}</p>
+        <p><strong>Observações:</strong> {{ aluno.observacoes }}</p>
+    </div>
+    <div class="card-footer text-end">
+        <a href="{% url 'lista_alunos' %}" class="btn btn-secondary">Voltar</a>
+        <a href="{% url 'editar_aluno' aluno.id %}" class="btn btn-warning">Editar</a>
+    </div>
+</div>
+{% endblock %}
