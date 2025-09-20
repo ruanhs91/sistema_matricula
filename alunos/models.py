@@ -8,9 +8,9 @@ class Aluno(models.Model):
     ]
     
     curso_opcoes=[
-        ('a', 'Apicultura'),
-        ('b', 'Alimentos'),
-        ('i', 'Informática'),
+        ('apicultura', 'Apicultura'),
+        ('alimentos', 'Alimentos'),
+        ('informática', 'Informática'),
     ]
     
     nome = models.CharField(max_length=150)
@@ -28,7 +28,7 @@ class Aluno(models.Model):
     bairro = models.CharField()
     uf = models.CharField(max_length=2)
     numero_matricula = models.CharField(unique=True)
-    curso = models.CharField(max_length=1,choices=curso_opcoes)
+    curso = models.CharField(max_length=15,choices=curso_opcoes)
     serie=models.CharField()
     turno = models.CharField()
     observacoes=models.TextField(max_length=200)
